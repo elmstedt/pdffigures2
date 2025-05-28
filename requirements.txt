@@ -1,0 +1,4 @@
+PyMuPDF
+scikit-learn
+Pillow
+pytest

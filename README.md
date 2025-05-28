@@ -1,4 +1,13 @@
 # PDFFigures 2.0
+
+This repository includes the original Scala implementation and a new Python refactor under `pdffigures2_python`. The Python code requires **Python 3.8+** and dependencies listed in `requirements.txt`. Use a virtual environment:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
 PDFFigures 2.0 is a Scala based project built to extract figures, captions, tables and section titles from
 scholarly documents, with a strong focus on documents from the domain of computer science.
 See our [paper](http://ai2-website.s3.amazonaws.com/publications/pdf2.0.pdf) for more details.
@@ -172,5 +181,19 @@ from the header in figures on the first page, but there is probably a way to
 relax this assumption to resolve this issue.
 
 
+
 ## Contact
 Christopher Clark, chrisc@allenai.org
+
+## Python Usage
+Run the refactored Python version via:
+
+```bash
+python -m pdffigures2_python.cli path/to/file.pdf -d output/data
+```
+
+To run tests:
+
+```bash
+pytest
+```
