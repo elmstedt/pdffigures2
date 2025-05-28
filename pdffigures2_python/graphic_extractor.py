@@ -16,4 +16,5 @@ def extract_graphics(page: fitz.Page) -> List[BBox]:
         rect = drawing.get("rect")
         if rect is not None:
             boxes.append((rect.x0, rect.y0, rect.x1, rect.y1))
+
     return boxes

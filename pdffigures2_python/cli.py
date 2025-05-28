@@ -2,9 +2,7 @@
 from argparse import ArgumentParser
 import json
 from pathlib import Path
-
 from . import figure_detector, figure_renderer, pdf_parser
-
 
 def build_parser() -> ArgumentParser:
     parser = ArgumentParser(description="Extract figures and captions from PDFs")
