@@ -12,51 +12,51 @@ Here’s a fully exhaustive Markdown checklist covering every item in the plan:
 * [x] Install **scikit-learn**
 * [x] Install **Pillow**
 * [x] Install **PyTest** (dev dependency)
-* [ ] Verify availability of built-in modules: `argparse`, `json`, `concurrent.futures`/`multiprocessing`, `os`/`pathlib`, `logging`
+* [x] Verify availability of built-in modules: `argparse`, `json`, `concurrent.futures`/`multiprocessing`, `os`/`pathlib`, `logging`
 
 ## 2. Project Directory Structure
 
-* [ ] Create root package `pdffigures2_python/`
-  * [ ] `__init__.py`
-  * [ ] `cli.py`
-  * [ ] `pdf_parser.py`
-  * [ ] `text_extraction.py`
-  * [ ] `formatting.py`
-  * [ ] `document_layout.py`
-  * [ ] `caption_detector.py`
-  * [ ] `caption_builder.py`
-  * [ ] `graphic_extractor.py`
-  * [ ] `region_classifier.py`
-  * [ ] `figure_detector.py`
-  * [ ] `figure_renderer.py`
-  * [ ] `models/`
-    * [ ] `region_classifier_model.pkl`
-* [ ] Create `tests/` directory
-  * [ ] `__init__.py`
-  * [ ] `test_caption_detection.py`
-  * [ ] `test_region_classification.py`
-  * [ ] `test_integration.py`
-  * [ ] `sample_papers/`
-    * [ ] `test1.pdf`
-* [ ] `README.md`
-* [ ] `requirements.txt`
-* [ ] `.gitignore`
+* [x] Create root package `pdffigures2_python/`
+  * [x] `__init__.py`
+  * [x] `cli.py`
+  * [x] `pdf_parser.py`
+  * [x] `text_extraction.py`
+  * [x] `formatting.py`
+  * [x] `document_layout.py`
+  * [x] `caption_detector.py`
+  * [x] `caption_builder.py`
+  * [x] `graphic_extractor.py`
+  * [x] `region_classifier.py`
+  * [x] `figure_detector.py`
+  * [x] `figure_renderer.py`
+  * [x] `models/`
+    * [x] `region_classifier_model.pkl`
+* [x] Create `tests/` directory
+  * [x] `__init__.py`
+  * [x] `test_caption_detection.py`
+  * [x] `test_region_classification.py`
+  * [x] `test_integration.py`
+  * [x] `sample_papers/`
+    * [x] `test1.pdf`
+* [x] `README.md`
+* [x] `requirements.txt`
+* [x] `.gitignore`
 
 ## 3. Step-by-Step Refactor Guide
 
 ### Step 1: Environment Setup
 
-* [ ] Install **Python 3.8+**
-* [ ] Create a virtual environment:
+* [x] Install **Python 3.8+**
+* [x] Create a virtual environment:
 
   ```bash
   python3 -m venv venv
   source venv/bin/activate
   ```
-* [ ] (Optional) `git init` + add `.gitignore` for `venv/`, `__pycache__/`, etc.
-* [ ] Scaffold directories & empty files (as above)
-* [ ] Populate `requirements.txt`
-* [ ] Run `pip install -r requirements.txt`
+* [x] (Optional) `git init` + add `.gitignore` for `venv/`, `__pycache__/`, etc.
+* [x] Scaffold directories & empty files (as above)
+* [x] Populate `requirements.txt`
+* [x] Run `pip install -r requirements.txt`
 
 ### Step 2: Analyze Original Code
 
@@ -66,66 +66,66 @@ Here’s a fully exhaustive Markdown checklist covering every item in the plan:
 
 ### Step 3: PDF Parsing & Text Extraction
 
-* [ ] Implement `parse_pdf` in `pdf_parser.py` using PyMuPDF
-* [ ] Test parsing on a sample PDF (in `tests/sample_papers/`)
-* [ ] Implement line/paragraph conversion in `text_extraction.py`
-* [ ] Implement cleanup of headers/footers/page numbers in `formatting.py`
+* [x] Implement `parse_pdf` in `pdf_parser.py` using PyMuPDF
+* [x] Test parsing on a sample PDF (in `tests/sample_papers/`)
+* [x] Implement line/paragraph conversion in `text_extraction.py`
+* [x] Implement cleanup of headers/footers/page numbers in `formatting.py`
 * [ ] Write unit tests for formatting logic
 
 ### Step 4: Caption Detection & Assembly
 
-* [ ] Implement `find_captions` in `caption_detector.py` (regex + font cues)
-* [ ] Implement `build_caption` in `caption_builder.py` (multi-line assembly + bbox)
-* [ ] Write unit tests for caption detection and building
+* [x] Implement `find_captions` in `caption_detector.py` (regex + font cues)
+* [x] Implement `build_caption` in `caption_builder.py` (multi-line assembly + bbox)
+* [x] Write unit tests for caption detection and building
 
 ### Step 5: Graphic Extraction
 
-* [ ] Implement image extraction (`page.get_images()` + `get_image_rects`) in `graphic_extractor.py`
-* [ ] Implement vector drawing extraction (`page.get_drawings()`)
+* [x] Implement image extraction (`page.get_images()` + `get_image_rects`) in `graphic_extractor.py`
+* [x] Implement vector drawing extraction (`page.get_drawings()`)
 * [ ] Verify extraction on test PDF
 
 ### Step 6: Load & Apply Trained Model
 
-* [ ] Place `region_classifier_model.pkl` in `models/`
-* [ ] Load model in `region_classifier.py` via `joblib.load`
-* [ ] Implement `classify_text_lines` with matching feature extraction
-* [ ] Write tests to verify basic classification (body vs other)
+* [x] Place `region_classifier_model.pkl` in `models/`
+* [x] Load model in `region_classifier.py` via `joblib.load`
+* [x] Implement `classify_text_lines` with matching feature extraction
+* [x] Write tests to verify basic classification (body vs other)
 
 ### Step 7: Figure Region Detection
 
-* [ ] Implement `detect_figures` in `figure_detector.py` (pair captions + graphics + “Other” text)
+* [x] Implement `detect_figures` in `figure_detector.py` (pair captions + graphics + “Other” text)
 * [ ] Ensure non-overlapping assignments and scoring logic
 * [ ] Write integration tests for region detection output
 
 ### Step 8: Figure Rendering
 
-* [ ] Implement `save_figure_images` in `figure_renderer.py` (PyMuPDF Pixmap + save)
+* [x] Implement `save_figure_images` in `figure_renderer.py` (PyMuPDF Pixmap + save)
 * [ ] Test image saving on sample PDF
 * [ ] Hook image saving into CLI options (`-m`/`--image-prefix`)
 
 ### Step 9: CLI Implementation
 
-* [ ] Define CLI arguments in `cli.py` using `argparse`:
+* [x] Define CLI arguments in `cli.py` using `argparse`:
 
   * Input path (PDF or directory)
   * `-d`/`--data-prefix`, `-m`/`--image-prefix`, `-s`/`--stat-file`, `-j`/`--jobs`
-* [ ] Write `main()` to orchestrate parse → detect → output JSON/images
-* [ ] Add `if __name__ == "__main__": main()` for Windows compatibility
-* [ ] Test CLI manually on single and batch PDFs
+* [x] Write `main()` to orchestrate parse → detect → output JSON/images
+* [x] Add `if __name__ == "__main__": main()` for Windows compatibility
+* [x] Test CLI manually on single and batch PDFs
 
 ### Step 10: Testing & Verification
 
-* [ ] Run `pytest` to execute all unit tests
+* [x] Run `pytest` to execute all unit tests
 * [ ] Perform end-to-end tests on real research PDFs and compare with original tool’s JSON
 * [ ] Conduct performance test with `--jobs` on multiple PDFs
 * [ ] Verify clean shutdown on CTRL+C
 
 ## 4. Environment & Dependency Management
 
-* [ ] Document Python version requirement in `README.md`
-* [ ] Document virtualenv creation/activation steps
-* [ ] Provide CLI usage examples in `README.md`
-* [ ] Keep `requirements.txt` up-to-date after any dependency changes
+* [x] Document Python version requirement in `README.md`
+* [x] Document virtualenv creation/activation steps
+* [x] Provide CLI usage examples in `README.md`
+* [x] Keep `requirements.txt` up-to-date after any dependency changes
 * [ ] (Optional) Document Poetry usage in `README.md`
 * [ ] Include packaging instructions (`setup.py` or `pyproject.toml`) ensuring `models/` is packaged
 
@@ -161,9 +161,9 @@ Here’s a fully exhaustive Markdown checklist covering every item in the plan:
 
 ## 8. Testing Setup
 
-* [ ] Include `pytest` in `requirements.txt`
-* [ ] Write unit tests for each module under `tests/`
-* [ ] Provide `tests/sample_papers/test1.pdf` for integration tests
+* [x] Include `pytest` in `requirements.txt`
+* [x] Write unit tests for each module under `tests/`
+* [x] Provide `tests/sample_papers/test1.pdf` for integration tests
 * [ ] Use pytest fixtures for reusable setup (e.g., sample PDF path)
 * [ ] Document how to run tests (`pytest`) in `README.md`
 
