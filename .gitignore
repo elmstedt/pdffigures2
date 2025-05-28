@@ -8,5 +8,13 @@ evaluation/datasets/**/*.pdf
 evaluation/datasets/**/*.jpeg
 evaluation/datasets/**/*.jpg
 evaluation/datasets/**/*.pgm
-
 *.pkl
+!pdffigures2_python/models/region_classifier_model.pkl
+
+venv/
+.pytest_cache/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+.DS_Store
